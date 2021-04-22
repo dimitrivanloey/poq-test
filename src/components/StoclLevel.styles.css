@@ -1,0 +1,12 @@
+.inStock{
+    color: green;
+}
+
+.lowOnStock{
+    color: orange;
+    margin-top: 10px;
+}
+
+.outOfStock{
+    color: red;
+}

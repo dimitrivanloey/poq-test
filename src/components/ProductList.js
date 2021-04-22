@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Product from "./Product";
+import './ProductList.styles.css'
 
 class ProductList extends React.Component {
   constructor() {
@@ -59,7 +60,7 @@ class ProductList extends React.Component {
             <Col key={product.productId} sm={12} md={3} lg={3} xl={3}>
               <Form>
                 <Form.Group controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" id={product.productId}
+                  <Form.Check className='checkBox' type="checkbox" id={product.productId}
                   onChange={this.handleChange} />
                   
                 </Form.Group>

@@ -1,0 +1,10 @@
+.promo{
+    color:white;
+    background-color: red;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    opacity: 0.5;
+    position: relative;
+    bottom: 70px;
+}

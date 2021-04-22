@@ -1,0 +1,8 @@
+.priceWas {
+    color: red;
+    text-decoration: line-through;
+}
+
+.price {
+    font-weight: bold;
+}
