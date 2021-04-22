@@ -2,28 +2,29 @@ import React from "react";
 
 import { Card } from "react-bootstrap";
 
-import StockLevel from './StockLevel'
-import Price from './Price'
-import PromotionBadge from './PromotionBadge'
+import StockLevel from "./StockLevel";
+import Price from "./Price";
+import PromotionBadge from "./PromotionBadge";
 
 function Product({ product }) {
   return (
-    <Card className="my-3 p-0 rounded" style={{ height: '40rem' }}>
+    <Card className="my-3 p-0 rounded" style={{ height: "40rem" }}>
       <Card.Img src={product.imageUrl} />
-      
-      <Card.Body className="my-3 p-0">
 
-      <Card.Text as="h3" className="p-0">
-      <PromotionBadge promoBadge={product.promotionBadge}/>
-      </Card.Text>
-      <Card.Text as="h4" className="my-0 p-2">{product.name}</Card.Text>
+      <Card.Body className="my-3 p-0">
+        <Card.Text as="h3" className="p-0">
+          <PromotionBadge promoBadge={product.promotionBadge} />
+        </Card.Text>
+
         <Card.Text as="h4" className="my-0 p-2">
-        <Price price={product.price} priceWas={product.priceWas}/>
+          {product.name}
+        </Card.Text>
+        <Card.Text as="h4" className="my-0 p-2">
+          <Price price={product.price} priceWas={product.priceWas} />
         </Card.Text>
         <Card.Text as="h4" className="my-0 p-2">
           <StockLevel quantity={product.quantity} />
         </Card.Text>
-
       </Card.Body>
     </Card>
   );

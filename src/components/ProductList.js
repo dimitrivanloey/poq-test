@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 import Product from "./Product";
-import './ProductList.styles.css'
+import "./ProductList.styles.css";
 
 class ProductList extends React.Component {
   constructor() {
@@ -49,24 +49,27 @@ class ProductList extends React.Component {
     return (
       <div>
         <Button variant="info" onClick={this.handleClick}>
-          Remove {this.state.count === 0 ? 'products' : 
-          this.state.count === 2 ?
-          `${this.state.count / 2} selected product` :
-          `${this.state.count / 2} selected products`
-          }
+          Remove{" "}
+          {this.state.count === 0
+            ? "products"
+            : this.state.count === 2
+            ? `${this.state.count / 2} selected product`
+            : `${this.state.count / 2} selected products`}
         </Button>
         <Row>
           {this.state.list.map((product) => (
             <Col key={product.productId} sm={12} md={3} lg={3} xl={3}>
               <Form>
                 <Form.Group controlId="formBasicCheckbox">
-                  <Form.Check className='checkBox' type="checkbox" id={product.productId}
-                  onChange={this.handleChange} />
-                  
+                  <Form.Check
+                    className="checkBox"
+                    type="checkbox"
+                    id={product.productId}
+                    onChange={this.handleChange}
+                  />
                 </Form.Group>
-                
               </Form>
-              <Product product={product}/>
+              <Product product={product} />
             </Col>
           ))}
         </Row>
