@@ -11,17 +11,19 @@ function Product({ product }) {
     <Card className="my-3 p-0 rounded" style={{ height: '40rem' }}>
       <Card.Img src={product.imageUrl} />
       
-      <Card.Body>
-      <Card.Text as="h3" className="my-3 p-0">
+      <Card.Body className="my-3 p-0">
+
+      <Card.Text as="h3" className="p-0">
       <PromotionBadge promoBadge={product.promotionBadge}/>
+      </Card.Text>
+      <Card.Text as="h4" className="my-0 p-2">{product.name}</Card.Text>
+        <Card.Text as="h4" className="my-0 p-2">
+        <Price price={product.price} priceWas={product.priceWas}/>
         </Card.Text>
-        <Card.Text as="h5">{product.name}</Card.Text>
-        <Card.Text as="h4" className="my-3">
-            <Price price={product.price} priceWas={product.priceWas}/>
-        </Card.Text>
-        <Card.Text as="h5" className="my-3">
+        <Card.Text as="h4" className="my-0 p-2">
           <StockLevel quantity={product.quantity} />
         </Card.Text>
+
       </Card.Body>
     </Card>
   );
