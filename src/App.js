@@ -1,12 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from "react-bootstrap";
 
-import ProductList from './components/ProductList';
+import ProductList from "./components/ProductList";
 
 function App() {
   return (
-    <div className="App">
-      <ProductList />
+    <div>
+      <main className='py-3'>
+        <Container>
+          <ProductList />
+        </Container>
+      </main>
     </div>
   );
 }

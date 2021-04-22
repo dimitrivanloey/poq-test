@@ -1,4 +1,6 @@
 import React from "react";
+import { Row, Col, Form, Button } from "react-bootstrap";
+import Product from "./Product";
 
 class ProductList extends React.Component {
   constructor() {
@@ -44,21 +46,29 @@ class ProductList extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <button onClick={this.handleClick}>
-          Remove {this.state.count / 2} selected products
-        </button>
-        {this.state.list.map((e) => (
-          <div key={e.productId}>
-            <input
-              type="checkbox"
-              id={e.productId}
-              onChange={this.handleChange}
-              name="check"
-            />
-            <label htmlFor={e.productId}>{e.name}</label>
-          </div>
-        ))}
+      <div>
+        <Button variant="info" onClick={this.handleClick}>
+          Remove {this.state.count === 0 ? 'products' : 
+          this.state.count === 2 ?
+          `${this.state.count / 2} selected product` :
+          `${this.state.count / 2} selected products`
+          }
+        </Button>
+        <Row>
+          {this.state.list.map((product) => (
+            <Col key={product.productId} sm={12} md={3} lg={3} xl={3}>
+              <Form>
+                <Form.Group controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" id={product.productId}
+                  onChange={this.handleChange} />
+                  
+                </Form.Group>
+                
+              </Form>
+              <Product product={product}/>
+            </Col>
+          ))}
+        </Row>
       </div>
     );
   }
