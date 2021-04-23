@@ -15,25 +15,35 @@ class ProductList extends React.Component {
   componentDidMount() {
     fetch("https://run.mocky.io/v3/fca7ef93-8d86-4574-9a4a-3900d91a283e")
       .then((response) => response.json())
-      .then((items) => this.setState({ list: items.filter(item => item.available !== 'FALSE') }));
+      .then((items) =>
+        this.setState({
+          list: items.filter((item) => item.available !== "FALSE"),
+        })
+      );
   }
 
   handleChange = (e) => {
     const { checked, type, id } = e.target;
 
     if (type === "checkbox" && checked === true) {
-      this.setState((prevState) => prevState.count++);
+      this.setState((prevState) => {
+        return {
+          list: prevState.list.map((li) =>
+            li.productId === +id ? { ...li, value: !li.value } : li
+          ),
+          count: prevState.count + 1,
+        };
+      });
     } else {
-      this.setState((prevState) => prevState.count--);
+      this.setState((prevState) => {
+        return {
+          list: prevState.list.map((li) =>
+            li.productId === +id ? { ...li, value: !li.value } : li
+          ),
+          count: prevState.count - 1,
+        };
+      });
     }
-
-    this.setState((prevState) => {
-      return {
-        list: prevState.list.map((li) =>
-          li.productId === +id ? { ...li, value: !li.value } : li
-        ),
-      };
-    });
   };
 
   handleClick = () => {
@@ -52,9 +62,9 @@ class ProductList extends React.Component {
           Remove{" "}
           {this.state.count === 0
             ? "products"
-            : this.state.count === 2
-            ? `${this.state.count / 2} selected product`
-            : `${this.state.count / 2} selected products`}
+            : this.state.count === 1
+            ? `${this.state.count} selected product`
+            : `${this.state.count} selected products`}
         </Button>
         <Row>
           {this.state.list.map((product) => (
