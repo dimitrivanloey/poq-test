@@ -15,7 +15,7 @@ class ProductList extends React.Component {
   componentDidMount() {
     fetch("https://run.mocky.io/v3/fca7ef93-8d86-4574-9a4a-3900d91a283e")
       .then((response) => response.json())
-      .then((items) => this.setState({ list: items }));
+      .then((items) => this.setState({ list: items.filter(item => item.available !== 'FALSE') }));
   }
 
   handleChange = (e) => {
