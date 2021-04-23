@@ -2,7 +2,7 @@ import React from "react";
 
 import "./StoclLevel.styles.css";
 
-function StockLevel({ quantity }) {
+function StockLevel({ quantity, lowStock}) {
   const inStock = <div className="inStock">{quantity} in stock</div>;
   const lowOnStock = (
     <div>
@@ -14,7 +14,7 @@ function StockLevel({ quantity }) {
 
   return (
     <div>
-      {quantity === 1 ? lowOnStock : quantity === 0 ? outOfStock : inStock}
+      {lowStock === 'FALSE' && quantity !== 0 ? inStock : quantity === 0 ? outOfStock: lowOnStock}
     </div>
   );
 }

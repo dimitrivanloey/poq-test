@@ -23,7 +23,7 @@ function Product({ product }) {
           <Price price={product.price} priceWas={product.priceWas} />
         </Card.Text>
         <Card.Text as="h4" className="my-0 p-2">
-          <StockLevel quantity={product.quantity} />
+          <StockLevel quantity={product.quantity} lowStock={product.lowOnStock}/>
         </Card.Text>
       </Card.Body>
     </Card>
